@@ -1,6 +1,6 @@
 # @strawberry-vis/g2-rect
 
-The lightweight React Component for [@antv/g2](https://github.com/antvis/G2).
+The lightweight [React](https://react.dev/) component for [@antv/g2 5.0](https://github.com/antvis/G2).
 
 ## Installing
 
@@ -12,11 +12,13 @@ $ npm install @strawberry-vis/g2-rect
 import React from "react";
 import { Chart } from "@strawberry-vis/g2-rect";
 
-export function Card() {
+export function Demo() {
   return (
     <Chart
       spec={{
         type: "interval",
+        width: 640,
+        height: 480,
         data: [
           { genre: "Sports", sold: 275 },
           { genre: "Strategy", sold: 115 },
@@ -35,8 +37,8 @@ export function Card() {
 
 | Property | Description                                                                                                                                        | Type               | Default |
 | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ------- |
-| spec     | the [spec](https://g2.antv.antgroup.com/manual/core/api) for visualization , say `chart.options(spec)`                                             | `G2Spec` \| `null` | -       |
-| options  | the [options](https://g2.antv.antgroup.com/manual/core/chart#%E5%85%A8%E5%B1%80%E9%80%89%E9%A1%B9) for instantiating char, say `G2.Chart(options)` | `ChartOptions`     | -       |
+| spec     | the [spec](https://g2.antv.antgroup.com/manual/core/api) for the visualization , say `chart.options(spec)`                                             | `G2Spec` \| `null` | -       |
+| options  | the [options](https://g2.antv.antgroup.com/manual/core/chart#%E5%85%A8%E5%B1%80%E9%80%89%E9%A1%B9) for instantiating the chart, say `G2.Chart(options)` | `ChartOptions`     | -       |
 | style    | the style of the container                                                                                                                         | `CSSProperties`    | -       |
 | onInit   | the callback called after the chart instantiating                                                                                                  | `Function`         | -       |
 | ref      | the ref for the [chart instance](https://g2.antv.antgroup.com/manual/core/chart)                                                                   | `ChartRef`         | -       |
@@ -59,12 +61,12 @@ import { Renderer } from "@antv/g-svg";
 export function Demo() {
   return (
     <Chart
-      // Sets some global options for creating chart.
+      // Set some global options for creating chart.
       options={{
-        autoFit: true, // Fits the container.
-        renderer: new Renderer(), // Renders chart into a SVG node.
+        autoFit: true, // Fit the container.
+        renderer: new Renderer(), // Render the chart into a SVG node.
       }}
-      // Sets the options related to visualization.
+      // Set the options related to charts.
       spec={{
         type: "interval",
         data: [
@@ -101,9 +103,9 @@ export function Demo() {
   );
 
   useEffect(() => {
-    // Mocks fetch.
+    // Mock the fetch delay.
     setTimeout(() => {
-      // Updates data.
+      // Update the data.
       setData([
         { genre: "Sports", sold: 275 },
         { genre: "Strategy", sold: 115 },
@@ -131,12 +133,12 @@ export function Demo() {
   function onInit() {
     const chart = chartRef.current;
 
-    // Listens input events.
+    // Listen input events.
     chart.on("plot:mouseover", () => {});
 
-    // Listens lifecycle events.
+    // Listen lifecycle events.
     chart.on(ChartEvent.AFTER_RENDER, () => {
-      // Emits to init the state of highlight interaction.
+      // Emit to init the state of highlight interaction.
       chart.emit("element:highlight", {
         data: {
           data: { genre: "Sports" },
@@ -155,7 +157,7 @@ export function Demo() {
 import React, { useRef, useEffect } from "react";
 import { register } from "@antv/g2";
 
-// Registers a triangle shape for interval globally.
+// Register a triangle shape for interval globally.
 register("shape.interval.triangle", (style, context) => {
   const { document } = context;
   return (P, value, defaults) => {
@@ -191,7 +193,7 @@ export function Demo() {
         encode: {
           x: "genre",
           y: "sold",
-          shape: "triangle", // Uses the custom shape.
+          shape: "triangle", // Use the custom shape.
         },
       }}
     />

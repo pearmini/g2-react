@@ -1,16 +1,32 @@
 {
   "name": "@strawberry-vis/g2-rect",
-  "version": "0.0.1",
+  "version": "0.0.1-beta.0",
   "description": "The lightweight React Component for @antv/g2.",
-  "main": "index.js",
-  "scripts": {
-    "dev": "vite dev"
-  },
   "author": {
     "name": "pearmini",
     "url": "https://github.com/pearmini"
   },
   "license": "ISC",
+  "type": "module",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/strawberry-vis/g2-react"
+  },
+  "files": [
+    "lib",
+    "es"
+  ],
+  "scripts": {
+    "dev": "vite dev",
+    "build": "npm run build:lib && npm run build:es",
+    "build:lib": "rm -rf lib && tsc --module commonjs --outDir lib",
+    "build:es": "rm -rf es && tsc --module esnext --outDir es",
+    "prepublishOnly": "npm run build"
+  },
+  "sideEffects": false,
   "dependencies": {
     "@antv/g2": "^5.0.22",
     "react": "^18.2.0"
@@ -21,6 +37,7 @@
     "@types/react-dom": "^18.2.7",
     "jsdom": "^22.1.0",
     "react-dom": "^18.2.0",
+    "typescript": "^5.2.2",
     "vite": "^4.4.9"
   }
 }

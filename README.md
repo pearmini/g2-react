@@ -1,6 +1,6 @@
 # @strawberry-vis/g2-rect
 
-A lightweight React Component for @antv/g2.
+A lightweight React Component for [@antv/g2](https://github.com/antvis/G2).
 
 ## Installing
 
@@ -9,13 +9,13 @@ npm install @strawberry-vis/g2-rect
 ```
 
 ```jsx
-import React, { useState } from "react";
+import React from "react";
 import { Chart } from "@strawberry-vis/g2-rect";
 
 export function Card() {
   return (
     <Chart
-      options={{
+      spec={{
         type: "interval",
         data: [
           { genre: "Sports", sold: 275 },
@@ -32,6 +32,16 @@ export function Card() {
 ```
 
 ## API Reference
+
+| Property | Description                                  | Type            | Default |
+| -------- | -------------------------------------------- | --------------- | ------- |
+| spec     | spec for visualization                       | `G2Spec`        | -       |
+| options  | options for `G2.Chart(options)`              | `ChartOptions`  | -       |
+| style    | style of the container                       | `CSSProperties` | -       |
+| onInit   | callback called after the chart instantiating | `Function`      | -       |
+| ref      | ref for chart instance                       | `ChartRef`      | -       |
+
+## Examples
 
 <a name="props-options" href="#props-options">#</a> props.**options**
 

@@ -1,0 +1,26 @@
+{
+  "name": "@strawberry-vis/g2-rect",
+  "version": "0.0.1",
+  "description": "The lightweight React Component for @antv/g2.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite dev"
+  },
+  "author": {
+    "name": "pearmini",
+    "url": "https://github.com/pearmini"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@antv/g2": "^5.0.22",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@antv/g-svg": "^1.10.14",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "jsdom": "^22.1.0",
+    "react-dom": "^18.2.0",
+    "vite": "^4.4.9"
+  }
+}

@@ -6,9 +6,15 @@ import React, {
   forwardRef,
   CSSProperties,
 } from "react";
-import { Chart as G2Chart, G2Spec, ChartOptions } from "@antv/g2";
+import {
+  Chart as G2Chart,
+  G2Spec,
+  ChartOptions as G2ChartOptions,
+} from "@antv/g2";
 
 export type ChartRef = G2Chart | undefined;
+
+export type ChartOptions = Omit<G2ChartOptions, "container">;
 
 export type ChartProps = {
   spec: G2Spec | null;

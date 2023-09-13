@@ -11,7 +11,7 @@ import { Chart as G2Chart, G2Spec, ChartOptions } from "@antv/g2";
 export type ChartRef = G2Chart | undefined;
 
 export type ChartProps = {
-  spec: G2Spec;
+  spec: G2Spec | null;
   options?: ChartOptions;
   style?: CSSProperties;
   onInit?: () => void;

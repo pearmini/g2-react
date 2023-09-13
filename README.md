@@ -5,7 +5,7 @@ The lightweight React Component for [@antv/g2](https://github.com/antvis/G2).
 ## Installing
 
 ```bash
-npm install @strawberry-vis/g2-rect
+$ npm install @strawberry-vis/g2-rect
 ```
 
 ```jsx
@@ -33,13 +33,13 @@ export function Card() {
 
 ## API Reference
 
-| Property | Description                                             | Type            | Default |
-| -------- | ------------------------------------------------------- | --------------- | ------- |
-| spec     | spec for visualization , say `chart.options(spec)`      | `G2Spec`        | -       |
-| options  | options for instantiating char, say `G2.Chart(options)` | `ChartOptions`  | -       |
-| style    | style of the container                                  | `CSSProperties` | -       |
-| onInit   | callback called after the chart instantiating           | `Function`      | -       |
-| ref      | ref for chart instance                                  | `ChartRef`      | -       |
+| Property | Description                                             | Type               | Default |
+| -------- | ------------------------------------------------------- | ------------------ | ------- |
+| spec     | spec for visualization , say `chart.options(spec)`      | `G2Spec` \| `null` | -       |
+| options  | options for instantiating char, say `G2.Chart(options)` | `ChartOptions`     | -       |
+| style    | style of the container                                  | `CSSProperties`    | -       |
+| onInit   | callback called after the chart instantiating           | `Function`         | -       |
+| ref      | ref for chart instance                                  | `ChartRef`         | -       |
 
 ## Examples
 
@@ -47,7 +47,7 @@ There are some basic examples where you can get started.
 
 ### Create Chart
 
-### Update Data
+### Fetch Data
 
 ```js
 import React, { useState } from "react";

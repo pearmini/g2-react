@@ -5,7 +5,7 @@ import { render } from "./render";
 function Demo() {
   return (
     <Chart
-      spec={{
+      options={{
         type: "interval",
         autoFit: true,
         data: [

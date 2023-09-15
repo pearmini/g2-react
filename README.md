@@ -15,7 +15,7 @@ import { Chart } from "@strawberry-vis/g2-rect";
 export function Demo() {
   return (
     <Chart
-      spec={{
+      options={{
         type: "interval",
         width: 640,
         height: 480,
@@ -35,13 +35,13 @@ export function Demo() {
 
 ## API Reference
 
-| Property | Description                                                                                                                                        | Type               | Default |
-| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ------- |
-| spec     | the [spec](https://g2.antv.antgroup.com/manual/core/api) for the visualization , say `chart.options(spec)`                                             | `G2Spec` \| `null` | -       |
-| options  | the [options](https://g2.antv.antgroup.com/manual/core/chart#%E5%85%A8%E5%B1%80%E9%80%89%E9%A1%B9) for instantiating the chart, say `G2.Chart(options)` | `ChartOptions`     | -       |
-| style    | the style of the container                                                                                                                         | `CSSProperties`    | -       |
-| onInit   | the callback called after the chart instantiating                                                                                                  | `Function`         | -       |
-| ref      | the ref for the [chart instance](https://g2.antv.antgroup.com/manual/core/chart)                                                                   | `ChartRef`         | -       |
+| Property | Description                                                                                                     | Type                  | Default |
+| -------- | --------------------------------------------------------------------------------------------------------------- | --------------------- | ------- |
+| options  | the [options](https://g2.antv.antgroup.com/manual/core/api) for the visualization, say `chart.options(options)` | `G2options` \| `null` | -       |
+| renderer | the [renderer](https://g.antv.antgroup.com/api/renderer/intro) of @antv/g canvas.                               | `ChartOptions`        | -       |
+| style    | the style of the container                                                                                      | `CSSProperties`       | -       |
+| onInit   | the callback called after the chart instantiating                                                               | `Function`            | -       |
+| ref      | the ref for the [chart instance](https://g2.antv.antgroup.com/manual/core/chart)                                | `ChartRef`            | -       |
 
 ## Examples
 
@@ -59,16 +59,14 @@ import { Chart } from "@strawberry-vis/g2-rect";
 import { Renderer } from "@antv/g-svg";
 
 export function Demo() {
+  const renderer = useMemo(() => new Renderer(), []);
   return (
     <Chart
-      // Set some global options for creating chart.
+      // Set renderer to SVG, optional.
+      renderer={renderer}
       options={{
-        autoFit: true, // Fit the container.
-        renderer: new Renderer(), // Render the chart into a SVG node.
-      }}
-      // Set the options related to charts.
-      spec={{
         type: "interval",
+        autoFit: true, // Fit the container.
         data: [
           { genre: "Sports", sold: 275 },
           { genre: "Strategy", sold: 115 },
@@ -92,8 +90,8 @@ import { Chart } from "@strawberry-vis/g2-rect";
 export function Demo() {
   const [data, setData] = useState(null);
 
-  // The spec will update after data updating.
-  const spec = useMemo(
+  // The options will update after data updating.
+  const options = useMemo(
     () => ({
       type: "interval",
       data,
@@ -116,7 +114,7 @@ export function Demo() {
     }, 1000);
   });
 
-  return <>{data === null ? <p>Loading...</p> : <Chart spec={spec} />}</>;
+  return <>{data === null ? <p>Loading...</p> : <Chart options={options} />}</>;
 }
 ```
 
@@ -181,7 +179,7 @@ register("shape.interval.triangle", (style, context) => {
 export function Demo() {
   return (
     <Chart
-      spec={{
+      options={{
         type: "interval",
         data: [
           { genre: "Sports", sold: 275 },

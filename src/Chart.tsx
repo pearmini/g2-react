@@ -17,14 +17,14 @@ export type ChartRef = G2Chart | undefined;
 export type ChartOptions = Omit<G2ChartOptions, "container">;
 
 export type ChartProps = {
-  spec: G2Spec | null;
-  options?: ChartOptions;
+  options: G2Spec | null;
+  renderer?: G2ChartOptions["renderer"];
   style?: CSSProperties;
   onInit?: () => void;
 };
 
 export const Chart = forwardRef<ChartRef, ChartProps>((props, ref) => {
-  const { spec, style, onInit, options } = props;
+  const { options, style, onInit, renderer } = props;
   const containerRef = useRef<HTMLDivElement>(null);
   const chartRef = useRef<G2Chart>();
   const [init, setInit] = useState(false);
@@ -32,8 +32,8 @@ export const Chart = forwardRef<ChartRef, ChartProps>((props, ref) => {
   useEffect(() => {
     if (containerRef.current) {
       chartRef.current = new G2Chart({
-        ...options,
         container: containerRef.current,
+        renderer,
       });
       setInit(true);
     }
@@ -47,11 +47,11 @@ export const Chart = forwardRef<ChartRef, ChartProps>((props, ref) => {
   }, [init]);
 
   useEffect(() => {
-    if (chartRef.current && spec) {
-      chartRef.current.options(spec);
+    if (chartRef.current && options) {
+      chartRef.current.options(options);
       chartRef.current.render();
     }
-  }, [spec]);
+  }, [options]);
 
   useImperativeHandle(ref, () => chartRef.current, [init]);
 

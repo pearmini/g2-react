@@ -4,7 +4,7 @@ import { render } from "./render";
 
 function Demo() {
   const [data, setData] = useState<Record<string, any>[] | null>(null);
-  const spec = useMemo(
+  const options = useMemo(
     () => ({
       type: "interval",
       data,
@@ -26,7 +26,7 @@ function Demo() {
     }, 1000);
   });
 
-  return <>{data === null ? <p>loading...</p> : <Chart spec={spec} />}</>;
+  return <>{data === null ? <p>loading...</p> : <Chart options={options} />}</>;
 }
 
 export const ChartLoading = render(Demo);

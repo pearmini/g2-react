@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useMemo } from "react";
+import { Renderer } from "@antv/g-svg";
 import { Chart } from "../../src";
 import { render } from "./render";
 
 function Demo() {
+  const renderer = useMemo(() => new Renderer(), []);
   return (
     <Chart
-      spec={{
+      renderer={renderer}
+      options={{
         type: "interval",
         data: [
           { genre: "Sports", sold: 275 },
@@ -20,4 +23,4 @@ function Demo() {
   );
 }
 
-export const chartSpec = render(Demo);
+export const chartRenderer = render(Demo);

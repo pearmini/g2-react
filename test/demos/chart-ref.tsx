@@ -21,7 +21,7 @@ function Demo() {
   return (
     <Chart
       ref={chartRef}
-      spec={{
+      options={{
         type: "interval",
         data: [
           { genre: "Sports", sold: 275 },

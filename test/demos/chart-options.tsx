@@ -1,13 +1,11 @@
 import React from "react";
-import { Renderer } from "@antv/g-svg";
 import { Chart } from "../../src";
 import { render } from "./render";
 
 function Demo() {
   return (
     <Chart
-      options={{ renderer: new Renderer() }}
-      spec={{
+      options={{
         type: "interval",
         data: [
           { genre: "Sports", sold: 275 },

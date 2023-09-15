@@ -26,7 +26,7 @@ function Demo() {
 
   return (
     <>
-      <Chart spec={options} />
+      <Chart options={options} />
       <button onClick={onClick}>Update</button>
     </>
   );

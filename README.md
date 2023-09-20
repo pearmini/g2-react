@@ -1,5 +1,7 @@
 # @strawberry-vis/g2-rect
 
+> WIP
+
 The lightweight [React](https://react.dev/) component for [@antv/g2 5.0](https://github.com/antvis/G2).
 
 ## Installing

@@ -30,21 +30,23 @@ export const Chart = forwardRef<ChartRef, ChartProps>((props, ref) => {
   const [init, setInit] = useState(false);
 
   useEffect(() => {
-    if (containerRef.current) {
-      chartRef.current = new G2Chart({
-        container: containerRef.current,
-        renderer,
-      });
-      setInit(true);
-    }
+    if (chartRef.current || !containerRef.current) return;
+    chartRef.current = new G2Chart({
+      container: containerRef.current,
+      renderer,
+    });
+    setInit(true);
     return () => {
-      if (chartRef.current) chartRef.current.destroy();
+      if (chartRef.current) {
+        chartRef.current.destroy();
+        chartRef.current = undefined;
+      }
     };
-  }, []);
+  }, [renderer]);
 
   useEffect(() => {
     if (init) onInit?.();
-  }, [init]);
+  }, [init, onInit]);
 
   useEffect(() => {
     if (chartRef.current && options) {

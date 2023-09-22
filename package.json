@@ -1,5 +1,5 @@
 {
-  "name": "@strawberry-vis/g2-rect",
+  "name": "@berryv/g2-rect",
   "version": "0.1.0",
   "description": "The lightweight React Component for @antv/g2.",
   "author": {
@@ -13,7 +13,7 @@
   "types": "es/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/strawberry-vis/g2-react"
+    "url": "https://github.com/berry-vis/g2-react"
   },
   "files": [
     "lib",

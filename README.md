@@ -1,4 +1,4 @@
-# @strawberry-vis/g2-rect
+# @berryv/g2-react
 
 > WIP
 
@@ -7,12 +7,12 @@ The lightweight [React](https://react.dev/) component for [@antv/g2 5.0](https:/
 ## Installing
 
 ```bash
-$ npm install @strawberry-vis/g2-rect
+$ npm install @berryv/g2-react
 ```
 
 ```jsx
 import React from "react";
-import { Chart } from "@strawberry-vis/g2-rect";
+import { Chart } from "@berryv/g2-react";
 
 export function Demo() {
   return (
@@ -57,7 +57,7 @@ export function Demo() {
 
 ```js
 import React from "react";
-import { Chart } from "@strawberry-vis/g2-rect";
+import { Chart } from "@berryv/g2-react";
 import { Renderer } from "@antv/g-svg";
 
 export function Demo() {
@@ -87,7 +87,7 @@ export function Demo() {
 
 ```js
 import React, { useState, useMemo } from "react";
-import { Chart } from "@strawberry-vis/g2-rect";
+import { Chart } from "@berryv/g2-react";
 
 export function Demo() {
   const [data, setData] = useState(null);
@@ -125,7 +125,7 @@ export function Demo() {
 ```js
 import React, { useRef, useEffect } from "react";
 import { ChartEvent } from "@antv/g2";
-import { Chart } from "@strawberry-vis/g2-rect";
+import { Chart } from "@berryv/g2-react";
 
 export function Demo() {
   const chartRef = useRef();
@@ -205,7 +205,7 @@ export function Demo() {
 
 ```js
 import React from "react";
-import { Chart } from "@strawberry-vis/g2-rect";
+import { Chart } from "@berryv/g2-react";
 
 export function Demo() {
   // ...

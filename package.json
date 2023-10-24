@@ -1,6 +1,6 @@
 {
   "name": "@berryv/g2-rect",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "The lightweight React Component for @antv/g2.",
   "author": {
     "name": "pearmini",
@@ -27,15 +27,17 @@
     "prepublishOnly": "npm run build"
   },
   "sideEffects": false,
-  "dependencies": {
-    "@antv/g2": "^5.0.22",
+  "peerDependencies": {
+    "@antv/g2": "^5.1.6",
     "react": "^18.2.0"
   },
   "devDependencies": {
     "@antv/g-svg": "^1.10.14",
+    "@antv/g2": "^5.1.6",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "jsdom": "^22.1.0",
+    "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^5.2.2",
     "vite": "^4.4.9"

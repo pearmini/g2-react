@@ -1,6 +1,6 @@
 {
-  "name": "@berryv/g2-rect",
-  "version": "0.2.0",
+  "name": "@berryv/g2-react",
+  "version": "0.1.0",
   "description": "The lightweight React Component for @antv/g2.",
   "author": {
     "name": "pearmini",
